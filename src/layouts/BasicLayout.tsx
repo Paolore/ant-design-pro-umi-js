@@ -9,19 +9,19 @@ import ProLayout, {
   BasicLayoutProps as ProLayoutProps,
   Settings,
   DefaultFooter,
-} from '@ant-design/pro-layout';
-import React, { useEffect } from 'react';
-import Link from 'umi/link';
-import { Dispatch } from 'redux';
-import { connect } from 'dva';
-import { Icon, Result, Button } from 'antd';
-import { formatMessage } from 'umi-plugin-react/locale';
+} from '@ant-design/pro-layout'
+import React, { useEffect } from 'react'
+import Link from 'umi/link'
+import { Dispatch } from 'redux'
+import { connect } from 'dva'
+import { Icon, Result, Button } from 'antd'
+import { formatMessage } from 'umi-plugin-react/locale'
 
-import Authorized from '@/utils/Authorized';
-import RightContent from '@/components/GlobalHeader/RightContent';
-import { ConnectState } from '@/models/connect';
-import { isAntDesignPro, getAuthorityFromRouter } from '@/utils/utils';
-import logo from '../assets/logo.svg';
+import Authorized from '@/utils/Authorized'
+import RightContent from '@/components/GlobalHeader/RightContent'
+import { ConnectState } from '@/models/connect'
+import { isAntDesignPro, getAuthorityFromRouter } from '@/utils/utils'
+import logo from '../assets/logo.svg'
 
 const noMatch = (
   <Result
@@ -38,19 +38,19 @@ const noMatch = (
 
 export interface BasicLayoutProps extends ProLayoutProps {
   breadcrumbNameMap: {
-    [path: string]: MenuDataItem;
-  };
+    [path: string]: MenuDataItem
+  }
   route: ProLayoutProps['route'] & {
-    authority: string[];
+    authority: string[]
   };
-  settings: Settings;
-  dispatch: Dispatch;
+  settings: Settings
+  dispatch: Dispatch
 }
 export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
   breadcrumbNameMap: {
-    [path: string]: MenuDataItem;
-  };
-};
+    [path: string]: MenuDataItem
+  }
+}
 
 /**
  * use Authorized check all menu item
@@ -60,9 +60,9 @@ const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] =>
     const localItem = {
       ...item,
       children: item.children ? menuDataRender(item.children) : [],
-    };
+    }
     return Authorized.check(item.authority, localItem, null) as MenuDataItem;
-  });
+  })
 
 const defaultFooterDom = (
   <DefaultFooter
