@@ -21,7 +21,7 @@ export default (): React.ReactNode => (
   <PageHeaderWrapper>
     <Card>
       <Alert
-        message="umi ui 现已发布，欢迎使用 npm run ui 启动体验。"
+        message="umi ui "
         type="success"
         showIcon
         banner
@@ -34,7 +34,7 @@ export default (): React.ReactNode => (
         <a target="_blank" rel="noopener noreferrer" href="https://pro.ant.design/docs/block">
           <FormattedMessage
             id="app.welcome.link.block-list"
-            defaultMessage="基于 block 开发，快速构建标准页面"
+            defaultMessage=" block "
           />
         </a>
       </Typography.Text>
